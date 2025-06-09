@@ -15,7 +15,7 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 
 # Đọc dữ liệu
 try:
-    data = pd.read_csv('E:\\Weather\\open-meteo-10.88N106.75E33m.csv')
+    data = pd.read_csv(r'D:\NT131.P24-DoAn\open-meteo-10.88N106.75E33m.csv')
     logging.info(f"Số dòng ban đầu: {len(data)}")
 except Exception as e:
     logging.error(f"Lỗi khi đọc dữ liệu: {e}")
@@ -125,13 +125,13 @@ logging.info(f"Báo cáo phân loại XGBoost:\n{classification_report(y_test_de
 
 # Lưu mô hình và scaler tốt nhất
 if accuracy_score(y_test, y_pred_rf) > accuracy_score(y_test, y_pred_xgb):
-    joblib.dump(best_rf, 'E:\\Weather\\weather_model.pkl')
+    joblib.dump(best_rf, r'D:\\NT131.P24-DoAn\\weather_model.pkl')
     logging.info("Lưu mô hình RandomForest.")
 else:
-    joblib.dump(xgb_model, 'E:\\Weather\\weather_model.pkl')
+    joblib.dump(xgb_model, r'D:\\NT131.P24-DoAn\\weather_model.pkl')
     logging.info("Lưu mô hình XGBoost.")
-joblib.dump(scaler, 'E:\\Weather\\scaler.pkl')
-joblib.dump(label_encoder, 'E:\\Weather\\label_encoder.pkl')
+joblib.dump(scaler, r'D:\\NT131.P24-DoAn\\scaler.pkl')
+joblib.dump(label_encoder, r'D:\\NT131.P24-DoAn\\label_encoder.pkl')
 logging.info("Scaler và LabelEncoder đã được lưu.")
 
 # In ra độ quan trọng của đặc trưng (RandomForest)

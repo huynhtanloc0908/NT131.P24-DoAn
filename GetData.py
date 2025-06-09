@@ -23,7 +23,7 @@ cursor.execute('''
 conn.commit()
 
 # Hàm tính áp suất mức biển
-def calculate_sea_level_pressure(pressure, temperature, height=10):
+def calculate_sea_level_pressure(pressure, temperature, height=1000):
     # Chuyển đổi nhiệt độ sang Kelvin
     T = temperature + 273.15
     # Công thức tính áp suất mức biển theo chuẩn WMO
